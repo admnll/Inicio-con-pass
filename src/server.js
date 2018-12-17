@@ -1,9 +1,19 @@
 const cafesito = require('express');
-const app = cafesito();
+const aplicacion = cafesito();
+
+const ruta = require('path');
+const manguito = require('mongoose');
+const pasaporte = require('passport');
+const flasheo = require('connect-flash');
+const morgana = require('morgan');
+const galleta = require('cookie-parser');
+const modulin = require('body-parser');
+const sesion = require(express-session);
 
 
 // Configuraciones
-app.set('port', process.env.PORT || 3000 );
+aplicacion.set('port', process.env.PORT || 3000 );
+
 
 // Middlewares
 
@@ -14,6 +24,6 @@ app.set('port', process.env.PORT || 3000 );
 // Archivos estáticos
 
 
-app.listen(app.get('port'), () => {
-    console.log('Servidor en el puerto', app.get('port'));
+aplicacion.listen(aplicacion.get('port'), () => {
+    console.log('Servidor en el puerto', aplicacion.get('port'));
 });
