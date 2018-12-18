@@ -38,10 +38,10 @@ aplicacion.use(sesion({
     secret: 'passecreto',
     resave: false,
     saveUninitialized: false
-
 }));
-aplicacion.use(pasaporte.initialize);
-aplicacion.use(pasaporte.session);
+
+aplicacion.use(pasaporte.initialize());
+aplicacion.use(pasaporte.session());
 aplicacion.use(flasheo()); // Sirve para pasar mensajes entre HTMLs
 
 // Rutas
