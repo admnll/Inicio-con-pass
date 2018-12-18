@@ -1,1 +1,45 @@
-<h1>Perfil</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página de perfil</title>
+    <% include partials/head %>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Página de perfil</h1>
+            <!-- <a href="/logout" class="btn btn-light btn-sm">
+            Salir -->
+            </a>
+        </header>
+
+        <hr>
+
+        <div class="container">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span class="fa fa-user">
+                            </span> 
+                            Local
+                        </h3>
+                        <p>
+                            <strong>id</strong>: <%= user._id %> <br>
+                            <strong>email</strong>: <%= user.local.email %> <br>
+                            <strong>password</strong>: <%= user.local.password %> 
+                        </p>
+                        <a href="/logout" class="btn btn-light">
+                        Salir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

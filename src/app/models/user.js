@@ -37,7 +37,7 @@ esquemaUsuario.methods.generaHash = function (password) {
 
 // Transformar la contraseña encriptada
 
-esquemaUsuario.methods.validaPass = function (password) {
+esquemaUsuario.methods.pollito = function (password) {
 
     return encripta.compareSync(password, this.local.password);
 

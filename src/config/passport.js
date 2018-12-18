@@ -5,11 +5,11 @@ const User = require('../app/models/user');
 
 module.exports = function (passport) {
 
-    passport.serializeUser(function(usuario, hecho){
+    passport.serializeUser(function (usuario, hecho) {
         hecho(null, usuario.id);
-    })
+    });
 
-    passport.deserializeUser(function(id, hecho) {
+    passport.deserializeUser(function (id, hecho) {
         User.findById(id, function(err, user){
         hecho(err, user);
         });
@@ -43,11 +43,11 @@ module.exports = function (passport) {
                         newUser.local.password = newUser.generaHash(password);
                         newUser.save(function (err) 
                         {
-                            if (err) {throw err;}
+                            if (err) { throw err; }
                             return hecho(null, newUser);
                         });
                     }
-            })
+            });
         
         }));
 
@@ -66,18 +66,21 @@ module.exports = function (passport) {
                     { 
                         return hecho(err); 
                     }
-                if (!user) // Si no existe el usuario
+                    // Si no existe el usuario
+                if (!user) 
                     {
                         return hecho(null, false, req.flash('loginMessage', 'El usuario no existe'));
                     } 
-                
-                if (!user.validatePassword(password))
+                // if (!user.validPassword(password))
+                // if (!user.authenticate(password))
+                // if (!user.verifyPassword(password))
+                // Se usa la contraseña desencriptada de user.js con
+                // esquemaUsuario.methods.pollito
+                    if (!user.pollito(password))
                     {
-                        return hecho(null, false, req.flash('loginMessage','La contraseña no coincide'));
+                        return hecho(null, false, req.flash('loginMessage', 'La contraseña no coincide'));
                     }   
                 return hecho(null, user);
-            })
-        
-        }));    
-
-};
+            }); 
+        }));     
+    }
